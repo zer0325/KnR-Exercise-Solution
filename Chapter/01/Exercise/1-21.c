@@ -11,7 +11,7 @@
 
 #include <stdio.h>
 #define N 8			/* number of columns per tab stop */
-#define MAX 10
+#define MAX 1000
 
 /* Step by step procedure:
 	
