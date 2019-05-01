@@ -6,11 +6,7 @@
 
 #include <stdio.h>
 #define N 	40			/* column width */
-<<<<<<< HEAD
 #define MAX	1000		/* size of array */
-=======
-#define MAX	20			/* size of array */
->>>>>>> a1aa3222dae42b9f293ee42921f7f0f36699cc1a
 #define TAB 8			/* tabstop size */
 
 main()
@@ -59,11 +55,8 @@ main()
 				i = 0;
 			}
 			col = 1;
-<<<<<<< HEAD
 			/* Take care of the condition where the last non-blank character in
 			 * a line falls exactly at the N-th column */
-=======
->>>>>>> a1aa3222dae42b9f293ee42921f7f0f36699cc1a
 			c = getchar();
 			if (c == '\n')
 				;
