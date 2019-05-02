@@ -3,7 +3,12 @@
  * possible of the text */
 
 #include <stdio.h>
-#define MAXLINE 50		/* maximum input line size */
+#define MAXLINE 50		/* Size of the array. This is not an imposed limit
+						 on what size the program only accepts. I initially use
+						 1000, but since I didn't see the effect when I use this
+						 file as input, I use 50 to simulate the effect of a
+						 line longer than 50. If change to 1000, the length of
+						 the longest line will be the same. */
 
 int getline(char line[], int maxline);
 void copy(char to[], char from[]);
