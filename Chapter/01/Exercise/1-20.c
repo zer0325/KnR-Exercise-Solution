@@ -36,8 +36,11 @@ main()
 		if (c == '\t') {
 			x = ((col - 1) / N) + 1;
 			while (col <= x * N) {
-				s[i] = '*';
+				s[i] = '*';			/* The character * is used to see the effect
+									   since a blank line will not be seen on
+									   the display */
 				++i;
+				/* Overflow  check */
 				if (i == MAX - 1) {
 					s[i] = '\0';
 					printf("%s", s);
@@ -54,13 +57,16 @@ main()
 		if (c == '\n') 
 			col = 1;
 
+		/* Process the input when the array is full */
 		if (i == MAX - 1) {
 			s[i] = '\0';
 			printf("%s", s);
 			i = 0;
 		}
 	}
+	/* Process the remaining input */
 	s[i] = '\0';
 	printf("%s", s);
+
 	return 0;
 }
