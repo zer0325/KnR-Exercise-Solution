@@ -6,7 +6,9 @@
 
 #define IN	1	/* inside a word */
 #define OUT	0	/* outside a word */
-#define WORDS 35
+#define WORDS 35	/* size of array; depends on the display of your screen. Can
+					   be modified based on your display without affecting the
+					   code. I use 35 to fit my display. */
 
 main()
 {
@@ -33,9 +35,10 @@ main()
 		if (state == IN)
 			++length;
 
-		/* Routine to print the histogram for 100 words */
+		/* Routine to print the histogram for every 35 words */
 		if (i == WORDS) {
-			/* Find the highest length word to serve as a reference */
+			/* Find the highest length to serve as a reference for displaying
+			 * the histogram */
 			for (i = 0; i < WORDS; ++i) {
 				if (lengths[i] > highest_length)
 					highest_length = lengths[i];
@@ -71,7 +74,7 @@ main()
 	}
 
 	/* Routine for the remaining or less than WORDS words */
-	/* Find the highest length word to serve as a reference */
+	/* Find the highest length to serve as a reference */
 	for (i = 0; lengths[i] > 0; ++i) {
 		if (lengths[i] > highest_length)
 			highest_length = lengths[i];
