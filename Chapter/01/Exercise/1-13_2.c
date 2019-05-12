@@ -2,13 +2,16 @@
  * in its input. It is easy to draw the histogram with the bars horizontal; a
  * vertical orientation is more challenging. */
 
+/* vertical histogram version */
+
+
 #include <stdio.h>
 
-#define IN	1	/* inside a word */
-#define OUT	0	/* outside a word */
-#define WORDS 35	/* size of array; depends on the display of your screen. Can
-					   be modified based on your display without affecting the
-					   code. I use 35 to fit my display. */
+#define IN	1		/* inside a word */
+#define OUT	0		/* outside a word */
+#define WORDS 35	/* can be any size. */
+					/* I use 35 because the histogram */
+					/* for every 35 words fit nicely on my screen */
 
 main()
 {
