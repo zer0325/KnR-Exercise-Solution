@@ -28,11 +28,7 @@
 		4. complement the result
 			~(~(~0 << n) << p + 1 - n)	(11000011)
 		5. AND the result with x
-<<<<<<< HEAD
 			x & ~(~(~0 << n) << p + 1 - n)	-> masked x
-=======
-			x & ~(~(~0 << n) << p + 1 - n)	-> masked n
->>>>>>> f6580acde8b6ae0e6978bb31d4e05a2edc557097
 		6. OR the result with the result of Procedure 1.4
 
 			(x & ~(~(~0 << n) << p+1-n)) | (~x & ~(~0 << n) << p+1-n)
