@@ -1,12 +1,13 @@
-/* Exercise 1-21. Write a program entab that replaces strings of blanks by the
- * minimum number of tabs and blanks to achieve the same spacing. Use the same
- * tab stops as for detab. When either a tab or a single blank would suffice to
- * reach a tab stop, which should be given preference?
- * 
+/* Exercise 1-21. Write a program entab that replaces
+ * strings of blanks by the minimum number of tabs and
+ * blanks to achieve the same spacing. Use the same tab
+ * stops as for detab. When either a tab or a single blank
+ * would suffice to reach a tab stop, which should be given
+ * preference? 
+ *
  * Answer to second question:
  * 
- * Based on our code, specifically lines 66 - 68, the tab character is given
- * preference.
+ * Based on our code, the tab character is given preference
  */
 
 #include <stdio.h>
@@ -16,19 +17,23 @@
 /* Step by step procedure:
 	
    1. Process the input per character.
-   	  a. Whenever a character is read, increment the col variable. 
-   2. If the character is a blank, temporarily suspend the saving of the
-   character to the array until the next non-blank character. Instead increment
-   the number of blanks.
-   3. If the character is a non-blank character, replace the strings of blanks
-   with the minimum number of tabs and blanks.
+   	  a. Whenever a character is read, increment the col 
+	  variable. 
+   2. If the character is a blank, temporarily suspend the 
+      saving  of the character to the array until the next
+	  non-blank character. Instead increment the number of
+	  blanks.
+   3. If the character is a non-blank character, replace 
+      the strings of blanks with the minimum number of 
+	  tabs and blanks.
    	  a. Find the col where the first blank appears.
 
 	 	 pos = col - nb;
 
-	  b. Within the range of numbers between pos and col, count the numbers that
-	  are a factor of N. The total number is the number of tabs.
-	
+	  b. Within the range of numbers between pos and col, 
+	  count the numbers that are a factor of N. The total
+	  number is the numer of tabs.
+
 	  	 for (j = pos; j < col; ++j)
 		 	if (j % N == 0)
 				++tab;
@@ -55,14 +60,17 @@ main()
 		if (c == ' ')
 			++nb;
 		else {
-			/* Replace the strings of blanks with the minimum number of tabs and
-			 * blanks to achieve the same spacing. */
+			/* Replace the strings of blanks with the 
+			 * minimum number of tabs and blanks to achieve
+			 * the same spacing. */
 
-			/* Find the column where the first blank appears */
+			/* Find the column where the first blank 
+			 * appears */
 			pos = col - nb;
 			
-			/* Within the range of numbers between pos and col, count the
-			 * numbers that are a factor of N. */
+			/* Within the range of numbers between pos 
+			 * and col, count the numbers that are a factor
+			 * of N. */
 			for (j = pos; j < col; ++j)
 				if (j % N == 0)
 					++tab;
@@ -105,10 +113,13 @@ main()
 		if (c == '\n')
 			col = 1;
 		else if (c == '\t') {
-			/* Set col to the column immediately after the nearest tab stop. 
+			/* Set col to the column immediately after the 
+			 * nearest tab stop.
+
 			   To find the nearest tab stop, E.g. Set N = 10.
 
-			   if 1 < col <= 10,  x = 1 where x is a factor of N.
+			   if 1 < col <= 10,  x = 1 where x is a factor
+			    						of N.
 			   if 11 < col <= 20, x = 2
 
 			   In general:

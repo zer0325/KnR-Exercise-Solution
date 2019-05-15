@@ -1,20 +1,24 @@
-/* Exercise 1-23. Write a program to remove all comments from a C program. Don't
- * forget to handle quoted strings and character constants properly. C comments
- * do not nest.
+/* Exercise 1-23. Write a program to remove all comments 
+ * from a C program. Don't forget to handle quoted strings
+ * and character constants properly. C comments do not 
+ * nest.
  */
 
 /* Procedure:
 
    Process the input per character.
    If the character is a '/'
-   		Check if the next character is an '*', if true, set state = IN.
-		otherwise save the '/' and the recently read character.
+   		Check if the next character is an '*', if true, 
+		set state = IN. Otherwise save the '/' and the
+		recently read character.
    If the character is an '*'
-   		Check if state = IN, if true, check if the next character is a '/',
+   		Check if state = IN, if true, check if the next 
+		character is a '/',
 				If true, set state = OUT.
 		otherwise, save the character.
    For other characters
-   		Check if the state = OUT, if true, save the character.
+   		Check if the state = OUT, if true, save the 
+		character.
 
 */
 

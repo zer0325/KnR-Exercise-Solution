@@ -1,14 +1,16 @@
-/* Exercise 1-16. Revise the main routine of the longest-line program so it will
- * correctly print the length of arbitrarily long input lines, and as much as
- * possible of the text */
+/* Exercise 1-16. Revise the main routine of the
+ * longest-line program so it will correctly print the
+ * length of arbitrarily long input lines, and as much as
+ * possbile of the text */
 
 #include <stdio.h>
-#define MAXLINE 50		/* Size of the array. This is not an imposed limit
-						 on what size the program only accepts. I initially use
-						 1000, but since I didn't see the effect when I use this
-						 file as input, I use 50 to simulate the effect of a
-						 line longer than 50. If change to 1000, the length of
-						 the longest line will be the same. */
+#define MAXLINE 50		
+/* Size of the array. This is not an imposed limit 
+ * on what size the program only accepts. I initially
+ * use 1000, but since I didn't see the effect when I
+ * use this file as input, I use 50 to simulate the
+ * effect of a line longer than 50. If changed to 1000,
+ * the length of the longest-line will be the same */
 
 int getline(char line[], int maxline);
 void copy(char to[], char from[]);
@@ -27,7 +29,7 @@ main()
 		if (len == MAXLINE - 1 && line[MAXLINE - 2] != '\n') {
 			while (getchar() != '\n')
 				++len;
-			++len;		/* to include the newline character */
+			++len;		/* include the newline character */
 		}
 		if (len > max) {
 			max = len;

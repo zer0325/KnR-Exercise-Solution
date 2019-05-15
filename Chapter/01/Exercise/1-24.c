@@ -1,18 +1,21 @@
-/* Exercise 1-24. Write a program to check a C program for rudimentary syntax
- * errors like unbalanced parenthesis, brackets and braces. Don't forget about
- * quotes, both single and double, escape sequences, and comments. (This program
- * is hard if you do it in full generality.)
+/* Exercise 1-24. Write a program to check a C program for 
+ * rudimentary syntax errors like unbalanced parenthesis,
+ * brackets and braces. Don't forget about quotes, both 
+ * single and double, escape sequences, and comments. 
+ * (This program is hard if you do it in full generality.)
  */
 
 /* Procedure:
 
    Process the input per character. 
-   To check for unbalanced parenthesis, we count the total number of open
-   parentheses and the close parentheses. Compare the open and close
-   parentheses, if they are equal, they are balanced. Provided if they are
+   To check for unbalanced parenthesis, we count the total 
+   number of open parenthessis and close parenthesis. 
+   Compare the open and close parenthesis, if they are 
+   equal, they are balanced. Provided if they are
    outside a comment.
 
-   Prior to this exercise the escape sequence that have been discussed are:
+   Prior to this exercise the escape sequence that have 
+   been discussed are:
 
    \t, \n, \b, \" and \\.
  
@@ -58,12 +61,13 @@ main()
 				++bracket;
 			else if (c == ']')
 				--bracket;
-			else if (c == 0x22) 	/* ascii value of double quote */
+			else if (c == 0x22) /* double quote in ASCII */
 				++double_q;
-			else if (c == 0x27)		/* ascii value of single quote */ 
+			else if (c == 0x27)	/* single quote in ASCII */ 
 				++single_q;
-			else if (c == 0x5c) { 	/* condition fot the escape sequences */
-				/* Get the next character */
+			else if (c == 0x5c) { /* if escape sequence 
+								  * Get the next character 
+								  */
 				c = getchar();
 				if (c != 'n' && c != 't' && c != 'b' && c != 0x22 && c != 0x5c)
 					++esc_sequence;

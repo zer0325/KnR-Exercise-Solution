@@ -1,10 +1,11 @@
-/* Exercise 1-4. Write a program to print the corresponding Celcius to
- * Fahrenheit table. */
+/* Exercise 1-4. Write a program to print the corresponding
+ * Celcius to Fahrenheit table. */
+
 
 #include <stdio.h>
 
-/* print Celcius-Fahrenheit table for celcius = 0, 20, ..., 300; floating-point
- * version */
+/* print Celcius-Fahrenheit table for celcius = 0, 20, ...,
+ * 300: floating-point version */
 
 main()
 {

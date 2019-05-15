@@ -1,28 +1,41 @@
-/* Exercise 1-20. Write a program detab that replaces tabs in the input with the
- * proper number of blanks to space to the next tab stop. Assume a fixed set of
- * tab stops, say every n columns. Should n be a variable or a symbolic
- * parameter? */
+/* Exercise 1-20. Write a program detab that replaces the
+ * tabs in the input with the proper number of blanks to
+ * space to the next tab stop. Assume a fixed set of tab
+ * stops, say every n columns. Should n be a variable or a
+ * symbolic parameter?
+ */
+
+/* Answer for the second question: n should be a symbolic
+ * parameter. 
+ */
 
 #include <stdio.h>
 #define MAX 1000
 #define N 8
 
-/* 
-	If the character is a tab character, the number of blanks will depend on the
-	value of the current col. Placement of blank will start at col up to the
-	tab stop. 
+/* Procedure:
 
-	lower_limit = col; 	upper_limit = x * N;	where x is the factor.
+   If the character is a tab character, the number of 
+   blanks will depend on the value of the current col.
+   Placement of blanks will start at col up to the tab 
+   stop which is a factor of n.
 
-	Assume that N = 10;
+   So,
 
-	if 1 < col <= 10		x = 1
-	if 11 < col <= 20		x = 2
-	if 21 < col <= 30		x = 3
+   lower_limit = col
+   upper_limit = x * N
 
-	From this:
+   where x is the factor.
 
-	x = ((col - 1) / N) + 1 
+   Assuming that N = 10.
+
+   if 1 < col <= 10		x = 1
+   if 11 < col <= 20	x = 2
+   if 21 < col <= 30	x = 3
+
+   From this:
+
+   x = ((col - 1) / N) + 1
 */
 
 main()
@@ -36,9 +49,11 @@ main()
 		if (c == '\t') {
 			x = ((col - 1) / N) + 1;
 			while (col <= x * N) {
-				s[i] = '*';			/* The character * is used to see the effect
-									   since a blank line will not be seen on
-									   the display */
+				s[i] = '*';		/* The character "*" is 
+								 * used to see the effect
+								 * since a blank line will
+								 * not be seen on the
+								 * display */
 				++i;
 				/* Overflow  check */
 				if (i == MAX - 1) {

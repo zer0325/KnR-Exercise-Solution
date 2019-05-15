@@ -1,5 +1,5 @@
-/* Exercise 1-15. Rewrite the temperature conversion program of Section 1.2 to
- * use a function for conversion */
+/* Exercise 1-15. Rewrite the temperture conversion program
+ * of Section 1.2 to use a function for conversion */
 
 #include <stdio.h>
 

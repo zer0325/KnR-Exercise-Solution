@@ -1,8 +1,9 @@
-/* Exercise 1-14. Write a program to print a histogram of the frequencies of
- * different characters in its input. */
+/* Exercise 1-14. Write a program to print a histogram of
+ * the frequencies of different characters it its input */
 
 #include <stdio.h>
-#define SIZE 128		/* number of characters in the ASCII character set */
+#define SIZE 128		/* number of characters in the 
+						 * ASCII character set */
 
 main()
 {
