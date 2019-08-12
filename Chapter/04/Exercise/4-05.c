@@ -7,11 +7,11 @@
    mathematical functions like sin, exp, and pow, we are going to
    edit the getop function.
 
-   We are going to collect the characters in the string, operand or
-   operator, and check if the string is an operator, a command, a
+   We are going to collect the characters in the string (operand or
+   operator) and check if the string is an operator, a command, a
    number or a mathematical function.
 
-   If the size of the string is 1 and it contains neither a number or
+   If the size of the string is 1 and it contains neither a number nor
    a letter, we have an operator.
    If the size of the string is 1 and it contains a letter, we have a
    command.
@@ -19,7 +19,7 @@
    letters only, we have a mathematical function.
    Otherwise, we have a number.
 
-   The implementation will added as a case label of the switch
+   The implementation will be added as a case label of the switch
    statement in the main function.
 
 */
