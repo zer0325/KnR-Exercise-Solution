@@ -5,8 +5,9 @@
 /*
     General Idea;
 
-	#include <stdio.h>
+	Let us look at the original source of reverse(s) function.
 
+	#include <stdio.h>
 	void reverse(char s[])
 	{
 		int c, i, j;
@@ -17,6 +18,7 @@
 			s[j] = c;
 		}
 	}
+
 	Based on the code above, the reverse function is just a simple
 	swap operation. In this case the elements that are being swapped
 	are the elements beginning at the leftmost and the rightmost
@@ -101,8 +103,7 @@ void reverse(char s[])
 		--left, ++right;
 		return;
 	}
-	swap(s, left, right);
-	--left, ++right;
+	swap(s, left--, right++);
 
 	return;
 }
