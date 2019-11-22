@@ -20,11 +20,11 @@
 
 main()
 {
-	char *x = "hello", *y = "world";
+	int x = 10, y = 20;
 
-	printf("Before swap x = %s, y = %s\n", x, y);
-	swap(char *,x,y);
-	printf("After swap x = %s, y = %s\n", x, y);
+	printf("Before swap x = %d, y = %d\n", x, y);
+	swap(int,x,y);
+	printf("After swap x = %d, y = %d\n", x, y);
 
 	return 0;
 }
