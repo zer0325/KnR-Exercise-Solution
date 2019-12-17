@@ -6,12 +6,12 @@
 /* General idea:
 
    Similar to the strcat version in Chapter 2, we will find first the
-   end of the string s, then copy string t to concatenate t to s.
+   end of the string s, then copy string t to the end of s.
 
 */
 
 
-/* strcat: concatenate t to end of s; s must be big enough */
+/* strcat: concatenate t to end of s. */
 void strcat(char *s, char *t)
 {
 	while(*s)
