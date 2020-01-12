@@ -26,7 +26,6 @@
 #include <stdio.h>
 #include <string.h>
 #include "getline.c"
-#include "alloc.c"
 
 #define MAXLINES 5000		/* max #lines to be sorted */
 #define ALLOCSIZE 10000		/* size of available space */
@@ -59,7 +58,6 @@ main()
 
 #define MAXLEN 1000		/* max length of any input line */
 int getline(char *, int);
-char *alloc(int);
 
 /* readlines: read input lines */
 int readlines(char *lineptr[], char *buff, int maxlines)
