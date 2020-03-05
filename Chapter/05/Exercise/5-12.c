@@ -12,8 +12,8 @@
 
 	tabstops will be: m+n, m+n+n, m+n+2n,..., m+n+kn;
 
-	k = 1 if	m+n <= col <= m+n+n
-	k = 2 if	m+n+n <= col <= m+n+2n
+	k = 1 if	m+n < col <= m+n+n
+	k = 2 if	m+n+n < col <= m+n+2n
 
 	k increments by 1 if col > m+n+2n
 
