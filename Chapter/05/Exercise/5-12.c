@@ -87,7 +87,7 @@ main(int argc, char *argv[])
 			}
 			x = ((col - 1) / N) + 1;
 			while (col <= x * N) {
-				s[i] = ' ';		/* The character "*" is 
+				s[i] = '*';		/* The character "*" is 
 								 * used to see the effect
 								 * since a blank line will
 								 * not be seen on the
