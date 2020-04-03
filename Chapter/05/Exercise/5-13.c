@@ -10,44 +10,118 @@
  * program of Section 5.6, not in a two-dimensional array of fixed size. 
  */
 
-#include <stdio.h>
-#define DEFAULT 10
+/* General idea:
 
-int is_num(char *);
+   The exercise requires us to use the storing mechanism of the sorting program
+   of section 5.6.
+
+   Lets use as a template the sorting process of the sorting program. But this
+   time we are going to use only two steps in our tail program.
+
+   The two steps are:
+
+   		read all the lines of input
+		print the last n lines
+
+   From this we can use both the readlines and writelines function of the
+   sorting program. The writelines function will have an additional argument, n,
+   which is the number of lines to be printed.
+*/
+
+#include <stdio.h>
+#include <string.h>
+#define DEFAULT 10			/* default number of lines to be printed */
+
+#define MAXLINES 5000		/* max #lines */
+
+char *lineptr[MAXLINES];	/* pointers to text lines */
+
+int readlines(char *lineptr[], int nlines);
+void writelines(char *lineptr[], int nlines, int n);
 
 main(int argc, char *argv[])
 {
 	int n = DEFAULT;
-	char *opt;
+	int nlines;
 
-	while(--argc > 0 && (*++argv)[0] == '-'){	
-		opt = &*++argv[0];	
-		if(is_num(opt))
-			n = atoi(opt);
-		else{
-			printf("invalid option\n");
-			return -1;
-		}
+	if(argc == 2){
+		++argv;
+		n = atoi(++argv[0]);
 	}
-
-	if(argc > 0){
-		printf("Usage: tail -n\n");
-		return -1;
-	}
-
-	printf("debug: n = %d\n", n);
 	
+	if((nlines = readlines(lineptr, MAXLINES)) >= 0){
+		writelines(lineptr, nlines, n);
+		return 0;
+	}else{
+		printf("error: input too big.\n");
+		return 1;
+	}
 
-	return 0;
 }
 
-int is_num(char *s)
+#define MAXLEN	1000		/* max length of any input line */
+int getline(char *, int);
+char *alloc(int);
+
+/* readlines: read input lines */
+int readlines(char *lineptr[], int maxlines)
 {
-	int c;
+	int len,  nlines;
+	char *p, line[MAXLEN];
 
-	while((c = *s++) != '\0')
-		if(!isdigit(c))
-			return 0;
+	nlines = 0;
+	while((len = getline(line, MAXLEN)) > 0){
+		if(nlines >= maxlines || (p = alloc(len)) == NULL)
+			return -1;
+		else{
+			line[len-1] = '\0';
+			strcpy(p, line);
+			lineptr[nlines++] = p;
+		}
+	}
+	return nlines;
+}
 
-	return 1;
+/* getline: read a line into s, return length */
+int getline(char s[], int lim)
+{
+	int c, i;
+
+	for(i=0; i<lim-1 && (c=getchar())!=EOF && c!='\n';i++)
+		s[i] = c;
+	if(c == '\n'){
+		s[i] = c;
+		++i;
+	}
+	s[i] = '\0';
+	return i;
+}
+
+
+/* alloc: return pointer to n characters */
+
+#define  ALLOCSIZE 10000	/* size of available space */
+
+static char allocbuf[ALLOCSIZE];		/* storage for alloc */
+static char *allocp = allocbuf;			/* next free position */
+
+char *alloc(int n)
+{
+	if(allocbuf + ALLOCSIZE - allocp >= n){ /* it fits */
+		allocp += n;
+		return allocp - n;		/* old p */
+	} else						/* not enough room */
+		return 0;
+}
+
+/* writelines: print the last n lines */
+void writelines(char *lineptr[], int nlines, int n)
+{
+	int start_line = 0;
+	int i;
+
+	start_line = nlines - n;
+
+	for(i = start_line; i < nlines; i++)
+		printf("%s\n", lineptr[i]);
 }
